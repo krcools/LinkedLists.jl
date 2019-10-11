@@ -1,6 +1,9 @@
 using LinkedLists
 using Test
 
-@testset "LinkedLists.jl" begin
-    # Write your own tests here.
+ll = LinkedList(["apple", "pear", "banana"])
+state = start(ll)
+insert!(ll, state, "kiwi")
+
+@test first(ll) == "kiwi"
 end
