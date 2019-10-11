@@ -6,4 +6,3 @@ state = start(ll)
 insert!(ll, state, "kiwi")
 
 @test first(ll) == "kiwi"
-end

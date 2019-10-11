@@ -8,7 +8,7 @@ struct Node{T}
     next::Int
 end
 
-struct LinkedList{T}
+mutable struct LinkedList{T}
     nodes::Vector{Node{T}}
     head::Int
 end
@@ -36,6 +36,9 @@ function Base.insert!(ll::LinkedList, pos, item)
     prev, next = pos
     push!(ll.nodes, Node(item, next))
     prev > 0 && (ll.nodes[prev] = Node(ll.nodes[prev].data, lastindex(ll.nodes)))
+    if next == ll.head
+        ll.head = lastindex(ll.nodes)
+    end
     return ll
 end
 
